@@ -1,0 +1,17 @@
+﻿Square saved settings live in a file named .env inside this POS folder.
+
+Example:
+
+SQUARE_ACCESS_TOKEN=Paste your Square production access token here
+SQUARE_DEVICE_ID=Paste your paired Square Terminal device id here
+SQUARE_LOCATION_ID=Optional Square location id
+SQUARE_ENVIRONMENT=production
+
+Do not send the .env file to anyone. It contains the private Square token.
+
+Easy start:
+1. Open PowerShell in this folder.
+2. First time only, run:
+   .\start-square-bridge.ps1 -Setup
+3. After that, run:
+   .\start-square-bridge.ps1

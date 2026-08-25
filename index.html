@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gloomin Grow POS</title>
+  <link rel="stylesheet" href="style.css?v=audit-log-20260604-1">
+  <script>
+    if (window.location.search.includes("owner-layout-2")) {
+      window.location.replace("index.html?fresh=owner-profit-3");
+    }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-lockup">
+        <img src="gloomin-grow-logo.jpg" alt="Gloomin Grow logo" class="brand-logo">
+        <span>Gloomin Grow By Todd Zen LLC</span>
+      </div>
+      <button class="top-btn language-btn" onclick="switchLanguage()">KH / EN</button>
+    </div>
+
+    <div class="time-box">
+      <button id="functionsText" class="top-btn" onclick="openFunctions()">Functions</button>
+      <p id="liveTime">12:00:00 PM</p>
+      <p id="liveDate">05/01/2026</p>
+    </div>
+
+    <button id="balanceText" class="top-btn" onclick="openEmployeeDashboard()">Balance</button>
+    <button id="appointmentText" class="top-btn" onclick="openAppointmentSheet()">Appointment</button>
+    <button id="closedTicketText" class="top-btn" onclick="displayClosedTickets()">Closed Ticket</button>
+    <button id="ownerText" class="top-btn" onclick="openOwnerDashboard()">Owner</button>
+
+    <div class="salon-info">
+      <p>Zen Nail In Lexington TN</p>
+      <p>596 West Church Street Lexington, TN 38351</p>
+      <p>(731) 999-9999</p>
+      <p>Merchant Account | Station: 1</p>
+    </div>
+
+    <button class="home" onclick="goHome()" aria-label="Home" title="Home">
+      <svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 10.5 12 3l9 7.5"></path>
+        <path d="M5 9.5V21h5v-6h4v6h5V9.5"></path>
+      </svg>
+      <span class="home-label">Home</span>
+    </button>
+  </header>
+
+  <main class="pos-grid">
+    <section class="queue-panel">
+      <h3 id="queueText">QUEUE SERVICE</h3>
+      <div id="queueList"></div>
+    </section>
+
+    <section class="content-section work-panel">
+      <h3>SERVICE</h3>
+    </section>
+
+    <section class="content-section">
+      <h3 id="turnText">STAFF STATUS</h3>
+      <div id="employeeDashboard" class="employee-dashboard"></div>
+    </section>
+  </main>
+
+  <div id="functionModal" class="modal">
+    <div class="modal-content">
+      <h2>Daily Tasks</h2>
+
+      <div class="function-grid">
+        <button class="function-card" onclick="openPinModal('clockIn')">Clock In</button>
+        <button class="function-card" onclick="openPinModal('clockOut')">Clock Out</button>
+        <button class="function-card">Ticket Payment</button>
+        <button class="function-card">Customers</button>
+        <button class="function-card">Refund</button>
+        <button class="function-card" onclick="openGiftCardManager()">Gift Cards</button>
+        <button class="function-card">Cash Drawer</button>
+        <button class="function-card" onclick="openDailyCloseReports()">Close Out</button>
+        <button class="function-card" onclick="openEmployeeDashboard()">Staff Status</button>
+        <button class="function-card" onclick="openOwnerDashboard(true, 'setup')">Settings</button>
+      </div>
+
+      <button class="close-btn" onclick="closeFunctions()">Close</button>
+    </div>
+  </div>
+
+  <div id="pinModal" class="pin-modal">
+    <div class="pin-box">
+      <div class="pin-header">
+        <h2>PASSWORD</h2>
+        <button onclick="closePinModal()" aria-label="Close password keypad">x</button>
+      </div>
+
+      <div id="pinDisplay" class="pin-display">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="keypad">
+        <button onclick="addPinNumber('1')">1</button>
+        <button onclick="addPinNumber('2')">2</button>
+        <button onclick="addPinNumber('3')">3</button>
+        <button onclick="addPinNumber('4')">4</button>
+        <button onclick="addPinNumber('5')">5</button>
+        <button onclick="addPinNumber('6')">6</button>
+        <button onclick="addPinNumber('7')">7</button>
+        <button onclick="addPinNumber('8')">8</button>
+        <button onclick="addPinNumber('9')">9</button>
+        <button onclick="clearPin()">Clear</button>
+        <button onclick="addPinNumber('0')">0</button>
+        <button onclick="deletePin()">Del</button>
+      </div>
+
+      <button id="confirmPinBtn" class="confirm-pin" onclick="submitPin()" disabled>CONFIRM</button>
+    </div>
+  </div>
+
+  <div id="ownerPasswordModal" class="owner-password-modal">
+    <div class="owner-password-card">
+      <button class="owner-password-close" onclick="closeOwnerPasswordModal()" aria-label="Close owner password">x</button>
+      <div class="owner-password-logo">
+        <img src="gloomin-grow-logo.jpg" alt="Gloomin Grow logo">
+      </div>
+      <p class="owner-password-kicker">Owner Access</p>
+      <h2>Enter Owner Password</h2>
+      <input id="ownerAccessPassword" type="password" placeholder="Owner password" autocomplete="current-password">
+      <p id="ownerAccessError" class="owner-access-error"></p>
+      <button class="owner-access-submit" onclick="submitOwnerPassword()">Unlock Owner</button>
+    </div>
+  </div>
+
+  <script src="script.js?v=audit-log-20260604-1"></script>
+</body>
+</html>
